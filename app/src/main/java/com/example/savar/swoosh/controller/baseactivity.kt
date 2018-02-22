@@ -1,8 +1,9 @@
-package com.example.savar.swoosh
+package com.example.savar.swoosh.controller
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.savar.swoosh.R
 
 open class baseactivity : AppCompatActivity() {
 

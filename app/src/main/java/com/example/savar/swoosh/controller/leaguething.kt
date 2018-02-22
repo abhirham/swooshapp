@@ -1,10 +1,12 @@
-package com.example.savar.swoosh
+package com.example.savar.swoosh.controller
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.savar.swoosh.R
+import com.example.savar.swoosh.utilities.selected
 
 import kotlinx.android.synthetic.main.activity_leaguething.*
 
@@ -18,7 +20,7 @@ class leaguething : AppCompatActivity() {
     fun next(view: View){
         if(choice!="")
         {
-            val nxt = Intent(this,skillactivity::class.java)
+            val nxt = Intent(this, skillactivity::class.java)
             nxt.putExtra(selected,choice)
             startActivity(nxt)
 
