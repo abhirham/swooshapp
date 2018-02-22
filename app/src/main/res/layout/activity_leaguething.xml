@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.savar.swoosh.leagueactivity">
+    tools:context="com.example.savar.swoosh.leaguething">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -89,6 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/swoosh_toggle"
+            android:onClick="coclick"
             android:text="@string/co_ed"
             android:textColor="@android:color/white"
             android:textOff="@string/co_ed"
