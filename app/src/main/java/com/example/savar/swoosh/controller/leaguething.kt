@@ -6,22 +6,38 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.savar.swoosh.R
-import com.example.savar.swoosh.utilities.selected
+import com.example.savar.swoosh.model.player
+import com.example.savar.swoosh.utilities.Player
+
 
 import kotlinx.android.synthetic.main.activity_leaguething.*
 
 class leaguething : AppCompatActivity() {
-    var choice=""
+
+    var play = player("","")
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putParcelable(Player,play)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_leaguething)
 
     }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if(savedInstanceState != null)
+            play=savedInstanceState.getParcelable(Player)
+    }
+
     fun next(view: View){
-        if(choice!="")
+        if(play.league!="")
         {
             val nxt = Intent(this, skillactivity::class.java)
-            nxt.putExtra(selected,choice)
+            nxt.putExtra(Player,play)
             startActivity(nxt)
 
         }
@@ -32,20 +48,20 @@ class leaguething : AppCompatActivity() {
     fun menclick(view: View){
         womenb.isChecked = false
         coedb.isChecked = false
-        choice= "Mens"
+        play.league= "Mens"
         //Toast.makeText(this,choice, Toast.LENGTH_LONG).show()
     }
 
     fun woclick(view: View){
         manb.isChecked = false
         coedb.isChecked = false
-        choice= "Womens"
+        play.league= "Womens"
         //Toast.makeText(this,choice, Toast.LENGTH_LONG).show()
     }
 
     fun coclick(view: View){
         manb.isChecked=false
         womenb.isChecked= false
-        choice= "co-ed"
+        play.league= "co-ed"
     }
 }
